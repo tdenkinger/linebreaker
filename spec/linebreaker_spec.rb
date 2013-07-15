@@ -1,7 +1,7 @@
-require 'minitest/autorun'
+require 'rspec'
 
 describe "Linebreaker", "A routine to break lines" do
   it "works" do
-    true.must_equal true
+    expect(true).to eq true
   end
 end
