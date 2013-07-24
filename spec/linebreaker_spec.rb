@@ -3,7 +3,6 @@ require 'rspec'
 class Linebreaker
   def self.break line, breakpoint
     return "" if line.nil?
-    return line if line.length <= breakpoint
     splitup(line, breakpoint)
   end
 
