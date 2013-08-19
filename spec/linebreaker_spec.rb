@@ -6,17 +6,13 @@ class Linebreaker
     splitup(line, breakpoint)
   end
 
-private
-
   def self.splitup(line, breakpoint)
-    line.scan(/.{#{breakpoint}}|.+/).join '\n'
+    parts = line.scan(/.{#{breakpoint}}|.+/).map{|p| p.strip}
+    parts.join '\n'
   end
 end
 
-describe "Linebreaker", "A routine to break lines" do
-  it "handles nil content" do
-    expect(Linebreaker.break nil, 1 ).to eq ""
-  end
+describe "Linebreaker", "A routine to break lines" do it "handles nil content" do expect(Linebreaker.break nil, 1 ).to eq "" end
 
   it "handles an empty line" do
     expect(Linebreaker.break "", 1 ).to eq ""
@@ -34,7 +30,7 @@ describe "Linebreaker", "A routine to break lines" do
     expect(Linebreaker.break "abc", 2).to eq 'ab\nc'
   end
 
-  xit "handles words" do
+  it "handles words" do
     expect(Linebreaker.break "four score", 5).to eq 'four\nscore'
   end
 end
